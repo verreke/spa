@@ -7,6 +7,8 @@ import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image2.jpg';
 import image3 from '../assets/image3.jpg';
 
+import CreateIssue from "./CreateIssue";
+
 function Dashboard() {
     return <div>
         <Grid container spacing={1}>
@@ -26,11 +28,7 @@ function Dashboard() {
           </Box>
         </Grid>
         <Grid item xs={6}>
-          1
-          1
-          1
-          1
-          1
+          <CreateIssue />
         </Grid>
         <Grid item xs={6}>
           2
