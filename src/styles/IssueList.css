@@ -1,0 +1,14 @@
+.container {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.issueList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.issueItem {
+    display: flex;
+    justify-content: 'space-between';
+}

@@ -1,0 +1,19 @@
+.title {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.searchContainer {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.searchInput {
+    width: 300px;
+}
+
+.tableContainer {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+}

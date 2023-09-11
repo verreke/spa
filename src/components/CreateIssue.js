@@ -1,17 +1,33 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Button, TextField, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function CreateIssue() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const [titleError, setTitleError] = useState('');
+    const [bodyError, setBodyError] = useState('');
+    
+    const navigate = useNavigate();
 
-    const handleSubmit = async () => {
-        const token = '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'; // GitHub의 Personal Access Token
-        const repoOwner = 'verreke';
-        const repoName = 'freeboard';
+    const repoOwner = 'verreke';
+    const repoName = 'freeboard';
+    const token = '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';
+
+    async function handleSubmit() {
+        // Validation
+        if (!title) {
+            setTitleError('제목을 입력해주세요');
+            return;
+        }
+        if (!body) {
+            setBodyError('내용을 입력해주세요');
+            return;
+        }
 
         try {
-            const response = await axios.post(`https://api.github.com/repos/${repoOwner}/${repoName}/issues`, {
+            await axios.post(`https://api.github.com/repos/${repoOwner}/${repoName}/issues`, {
                 title: title,
                 body: body
             }, {
@@ -19,32 +35,53 @@ function CreateIssue() {
                     'Authorization': `token ${token}`
                 }
             });
-            
-            if (response.status === 201) {
-                alert('Issue created successfully!');
-            } else {
-                alert('Error creating issue.');
-            }
+            navigate('/freeboard');
         } catch (error) {
-            console.error("There was an error creating the issue", error);
+            console.error("Error creating issue:", error);
         }
-    };
+    }
 
     return (
-        <div>
-            <input 
-                type="text" 
-                placeholder="Issue Title" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)}
+        <Container component="main" maxWidth="xs">
+            <h1>글쓰기</h1>
+            <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="title"
+                label="제목"
+                name="title"
+                autoFocus
+                value={title}
+                onChange={(e) => { setTitle(e.target.value); setTitleError(''); }}
+                error={!!titleError}
+                helperText={titleError}
             />
-            <textarea 
-                placeholder="Issue Body" 
-                value={body} 
-                onChange={(e) => setBody(e.target.value)}
-            ></textarea>
-            <button onClick={handleSubmit}>Submit Issue</button>
-        </div>
+            <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                multiline
+                rows={4}
+                id="body"
+                label="내용"
+                name="body"
+                value={body}
+                onChange={(e) => { setBody(e.target.value); setBodyError(''); }}
+                error={!!bodyError}
+                helperText={bodyError}
+            />
+            <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                onClick={handleSubmit}
+            >
+                등록하기
+            </Button>
+        </Container>
     );
 }
 

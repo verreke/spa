@@ -41,3 +41,7 @@
     transform: rotate(360deg);
   }
 }
+
+.content {
+  margin-top: 10vh;  /* 예: 60px */
+}

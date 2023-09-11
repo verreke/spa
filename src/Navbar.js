@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
+import './styles/Navbar.css';
 
 function Navbar() {
     return (
-        <nav>
-            <Link to="/">홈</Link>
-            <Link to="/freeboard">자유게시판</Link>
-            <Link to="/questionboard">질문게시판</Link>
-        </nav>
+        <div className="navbar">
+            <Link to="/" className="navbar-link">홈</Link>
+            <Link to="/freeboard" className="navbar-link">자유게시판</Link>
+            <Link to="/questionboard" className="navbar-link">질문게시판</Link>
+        </div>
     );
 }
 

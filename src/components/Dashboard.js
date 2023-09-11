@@ -14,7 +14,7 @@ function Dashboard() {
     return <div>
         <Grid container spacing={1}>
         <Grid item xs={12}>
-          <Box bgcolor="info.main" color="info.contrastText" p={2}>
+          <Box p={2}>
             <Carousel autoPlay infiniteLoop showThumbs={false}>
               <div>
                   <img src={image1} className="image-logo" alt="logo" />
@@ -29,17 +29,22 @@ function Dashboard() {
           </Box>
         </Grid>
         <Grid item xs={6}>
-          <IssueList 
-            header="자유게시판"
-            repository={{ owner:`verreke`, name:`freeboard`}}
-          />
+          <Box p={2}>
+            <IssueList 
+              header="자유게시판"
+              repository={{ owner:`verreke`, name:`freeboard`}}
+            />
+          </Box>
         </Grid>
         <Grid item xs={6}>
-        <IssueList 
-            header="질문게시판"
-            repository={{ owner:`verreke`, name:`freeboard`}}
-          />
+          <Box p={2}>
+            <IssueList 
+              header="질문게시판"
+              repository={{ owner:`verreke`, name:`freeboard`}}
+            />
+          </Box>
         </Grid>
+        
       </Grid>
     </div>
 }
