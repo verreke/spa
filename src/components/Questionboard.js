@@ -47,15 +47,7 @@ function Questionboard() {
             return;
         }
         setIsSearching(true);
-        async function fetchFilteredIssues() {
-            try {
-                const response = await axios.get(`https://api.github.com/search/issues?q=${searchType}:${searchTerm}+repo:${repoOwner}/${repoName}`);
-                setIssues(response.data.items);
-            } catch (error) {
-                console.error("Error fetching filtered issues:", error);
-            }
-        }
-        fetchFilteredIssues();
+        setIssues(issues.filter( issue => issue.title.includes(searchTerm)));
     }
 
     const handleCancelSearch = () => {
