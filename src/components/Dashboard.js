@@ -7,8 +7,8 @@ import image1 from '../assets/image1.jpg';
 import image2 from '../assets/image2.jpg';
 import image3 from '../assets/image3.jpg';
 
-import CreateIssue from "./CreateIssue";
-import IssueList from "./IssueList"
+import FreeIssueList from "./FreeIssueList";
+import QuestionIssueList from "./QuestionIssueList";
 
 function Dashboard() {
     return <div>
@@ -30,7 +30,7 @@ function Dashboard() {
         </Grid>
         <Grid item xs={6}>
           <Box p={2}>
-            <IssueList 
+            <FreeIssueList 
               header="자유게시판"
               repository={{ owner:`verreke`, name:`freeboard`}}
             />
@@ -38,9 +38,9 @@ function Dashboard() {
         </Grid>
         <Grid item xs={6}>
           <Box p={2}>
-            <IssueList 
+            <QuestionIssueList 
               header="질문게시판"
-              repository={{ owner:`verreke`, name:`freeboard`}}
+              repository={{ owner:`verreke`, name:`questionboard`}}
             />
           </Box>
         </Grid>

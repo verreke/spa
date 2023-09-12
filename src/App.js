@@ -7,8 +7,10 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Freeboard from './components/Freeboard';
 import Questionboard from './components/Questionboard';
-import IssueDetail from './components/IssueDetail'
-import CreateIssue from './components/CreateIssue';
+import FreeIssueDetail from './components/FreeIssueDetail'
+import QuestionIssueDetail from './components/QuestionIssueDetail';
+import CreateFreeIssue from './components/CreateFreeIssue';
+import CreateQuestionIssue from './components/CreateQuestionIssue';
 import { useModal, ModalProvider } from './components/ModalContext';
 
 function App() {
@@ -21,8 +23,10 @@ function App() {
             <Route path="/" element={<Dashboard />}/>
             <Route path="/freeboard" element={<Freeboard />}/>
             <Route path="/questionboard" element={<Questionboard />}/>
-            <Route path="/issue/:id" element={<IssueDetail />} />
-            <Route path="/createissue" element={<CreateIssue />} />
+            <Route path="/freeissue/:id" element={<FreeIssueDetail />} />
+            <Route path="/questionissue/:id" element={<QuestionIssueDetail />} />
+            <Route path="/createfreeissue" element={<CreateFreeIssue />} />
+            <Route path="/createquestionissue" element={<CreateQuestionIssue />} />
           </Routes>
         </div>
       </ModalProvider>

@@ -69,7 +69,7 @@ function FreeBoard() {
     };
 
     const handleCreateIssue = () => {
-        navigate('/createissue');
+        navigate('/createfreeissue');
     }
 
     const totalPages = Math.ceil(issues.length / issuesPerPage);
@@ -113,7 +113,7 @@ function FreeBoard() {
                         currentIssues.map(issue => (
                             <TableRow key={issue.id}>
                                 <TableCell>{issue.number}</TableCell>
-                                <TableCell><Link to={`/issue/${issue.number}`}>{issue.title}</Link></TableCell>
+                                <TableCell><Link to={`/freeissue/${issue.number}`}>{issue.title}</Link></TableCell>
                                 <TableCell>{issue.user.login}</TableCell>
                                 <TableCell>{new Date(issue.created_at).toLocaleDateString()}</TableCell>
                             </TableRow>

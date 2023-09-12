@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Button, TextField, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function CreateIssue() {
+function CreateFreeIssue() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [titleError, setTitleError] = useState('');
@@ -13,7 +13,7 @@ function CreateIssue() {
 
     const repoOwner = 'verreke';
     const repoName = 'freeboard';
-    const token = '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';
+    const token = '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';
 
     async function handleSubmit() {
         // Validation
@@ -85,4 +85,4 @@ function CreateIssue() {
     );
 }
 
-export default CreateIssue;
+export default CreateFreeIssue;

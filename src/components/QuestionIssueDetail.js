@@ -6,15 +6,15 @@ import '../styles/IssueDetail.css'; // 스타일시트 추가
 import { Button, Typography, Paper, Divider } from '@mui/material';
 import { useModal } from './ModalContext';
 
-function IssueDetail() {
+function QuestionIssueDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
     const [issue, setIssue] = useState(null);
     const { openModal, closeModal } = useModal();
 
     const repoOwner = 'verreke';
-    const repoName = 'freeboard';
-    const token = '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';
+    const repoName = 'questionboard';
+    const token = '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';
 
     useEffect(() => {
         async function fetchIssue() {
@@ -48,7 +48,7 @@ function IssueDetail() {
                 }
             });
             closeModal();
-            navigate("/freeboard");
+            navigate("/questionboard");
         } catch (error) {
             console.error("Error deleting the issue:", error);
         }
@@ -76,10 +76,10 @@ function IssueDetail() {
                     <Button variant="contained" color="primary" onClick={handleEdit}>수정</Button>
                     <Button variant="contained" color="primary" onClick={handleDelete}>삭제</Button>
                 </div>
-                <Button variant="contained" onClick={() => navigate('/freeboard')}>목록</Button>
+                <Button variant="contained" onClick={() => navigate('/questionboard')}>목록</Button>
             </div>
         </Paper>
     );
 }
 
-export default IssueDetail;
+export default QuestionIssueDetail;

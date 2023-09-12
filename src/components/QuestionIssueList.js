@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../styles/IssueList.css'
 
-function IssueList({ header, repository }) {
+function FreeIssueList({ header, repository }) {
     const [issues, setIssues] = useState([]);
 
     useEffect(() => {
@@ -38,17 +38,22 @@ function IssueList({ header, repository }) {
         <div>
             <h2>{header}</h2>
             <div className='container'>
-                <ul className='issueList'>
-                    {issues.map(issue => (
-                        <li key={issue.id} className='issueItem'>
-                            <Link to="/freeboard">{issue.title}</Link>
-                            <span>{formatDate(issue.created_at)}</span>
-                        </li>
-                    ))}
-                </ul>
+                {issues.length > 0 ? (
+                    <ul className='issueList'>
+                        {issues.map(issue => (
+                            <li key={issue.id} className='issueItem'>
+                                <Link to='questionboard'>{issue.title}</Link>
+                                <span>{formatDate(issue.created_at)}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    ) : (
+                        <span>등록된 게시글이 없습니다.</span>
+                    )
+                }
             </div>
         </div>
     );
 }
 
-export default IssueList;
+export default FreeIssueList;
